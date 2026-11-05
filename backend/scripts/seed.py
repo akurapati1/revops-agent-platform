@@ -7,15 +7,14 @@ import asyncio
 
 from sqlalchemy import select
 
+from app.agents.orchestrator import execute_run
 from app.core.security import hash_password
 from app.db import SessionLocal, create_all
-from app.models import Lead, Org, User
+from app.models import AgentRun, Approval, Lead, Org, User
 from app.schemas.api import LeadIn
 from app.services import approvals as approval_svc
 from app.services import leads as lead_svc
 from app.services import orgs as org_svc
-from app.agents.orchestrator import execute_run
-from app.models import AgentRun, Approval
 
 EMAIL, PASSWORD = "demo@revops.dev", "demo-password-123"
 
